@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidos contra el Cambio Climático</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <div class="barra-clima">
+        <label for="selector-clima"><strong>Simular Clima:</strong></label>
+        <select id="selector-clima" onchange="cambiarTemaClima(this.value)">
+            <option value="soleado">Soleado / Seco</option>
+            <option value="lluvioso">Lluvioso</option>
+            <option value="frio">Frío Polar</option>
+            <option value="verde">Bosque Verde</option>
+        </select>
+    </div>
+
+    <header class="encabezado-principal">
+        <div class="contenido-encabezado">
+            <h1>Unidos contra el Cambio Climático</h1>
+            <nav class="menu-navegacion">
+                <ul>
+                    <li><a href="#causas">Causas</a></li>
+                    <li><a href="#consecuencias">Consecuencias</a></li>
+                    <li><a href="#soluciones">Soluciones</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contenedor-principal">
+
+        <section id="causas" class="tarjeta">
+            <h2>¿Qué es y cuáles son sus Causas?</h2>
+            <p>
+                El cambio climático se refiere a las modificaciones a largo plazo de las temperaturas y los patrones climáticos[span_0](start_span)[span_0](end_span). 
+                Las actividades humanas son el motor principal mediante la quema de combustibles fósiles, generando gases que provocan el <strong>efecto invernadero</strong>[span_1](start_span)[span_1](end_span).
+            </p>
+            
+            <h3>Principales Causas:</h3>
+            <ul class="lista-estilizada">
+                <li>Generación excesiva de energía a base de carbón y petróleo.</li>
+                <li>Deforestación masiva en selvas y bosques tropicales[span_2](start_span)[span_2](end_span).</li>
+                <li>Emisiones de gases contaminantes por el transporte y la industria.</li>
+            </ul>
+        </section>
+
+        <section id="consecuencias" class="tarjeta">
+            <h2>Consecuencias Globales</h2>
+            
+            <ol class="lista-ordenada-estilizada">
+                <li>Aumento acelerado del nivel del mar por deshielo[span_3](start_span)[span_3](end_span).</li>
+                <li>Incremento de eventos meteorológicos extremos (sequías e inundaciones)[span_4](start_span)[span_4](end_span).</li>
+                <li>Pérdida crítica de biodiversidad en los ecosistemas[span_5](start_span)[span_5](end_span).</li>
+            </ol>
+
+            <div class="contenedor-imagen">
+                <img id="imagen-clima" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80" alt="Paisaje afectado por altas temperaturas" class="imagen-adaptable">
+                <p id="pie-imagen" class="epigrafe">Imagen: Impacto visual del clima en el ecosistema.</p>
+            </div>
+        </section>
+
+        <section id="soluciones" class="tarjeta">
+            <h2>Acciones y Soluciones</h2>
+            <p>Estrategias de mitigación estructuradas por niveles de impacto:</p>
+
+            <div class="contenedor-tabla">
+                <table class="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>Nivel</th>
+                            <th>Acción</th>
+                            <th>Impacto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Individual</strong></td>
+                            <td>Ahorro energético y uso de transporte sostenible.</td>
+                            <td>Reducción de huella personal.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Comunitario</strong></td>
+                            <td>Programas locales de reciclaje y reforestación.</td>
+                            <td>Restauración de hábitats naturales.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gubernamental</strong></td>
+                            <td>Inversión masiva en energías renovables.</td>
+                            <td>Disminución global de emisiones.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="contacto" class="tarjeta tarjeta-destacada">
+            <h2>Súmate al Cambio</h2>
+            <p>Suscríbete para recibir boletines informativos periódicos.</p>
+
+            <form class="formulario-suscripcion" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!');">
+                <div class="grupo-formulario">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required>
+                </div>
+
+                <button type="submit" class="boton-enviar">Suscribirme</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="pie-pagina">
+        <div class="contenido-pie">
+            <p>&copy; <span id="anio"></span> Proyecto Ecológico. Todos los derechos reservados.</p>
+            <p class="mensaje-pie">El futuro depende de las acciones de hoy.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('anio').textContent = new Date().getFullYear();
+
+        function cambiarTemaClima(clima) {
+            const imagen = document.getElementById('imagen-clima');
+            const epigrafe = document.getElementById('pie-imagen');
+            const cuerpo = document.body;
+
+            const datosClima = {
+                soleado: {
+                    src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
+                    alt: "Clima soleado y sequía",
+                    epigrafe: "Imagen: Ecosistema afectado por altas temperaturas y sequía.",
+                    fondo: "#fffdf5"
+                },
+                lluvioso: {
+                    src: "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=1000&q=80",
+                    alt: "Clima lluvioso",
+                    epigrafe: "Imagen: Precipitaciones intensas y riesgo de inundaciones.",
+                    fondo: "#f0f4f8"
+                },
+                frio: {
+                    src: "https://images.unsplash.com/photo-1483664852095-d6cc6870702d?auto=format&fit=crop&w=1000&q=80",
+                    alt: "Clima frío y glaciares",
+                    epigrafe: "Imagen: Zonas polares y áreas afectadas por deshielo.",
+                    fondo: "#f4f9fc"
+                },
+                verde: {
+                    src: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1000&q=80",
+                    alt: "Bosque verde",
+                    epigrafe: "Imagen: Naturaleza equilibrada gracias a la reforestación.",
+                    fondo: "#f2f9f4"
+                }
+            };
+
+            const datos = datosClima[clima];
+            if (datos) {
+                imagen.src = datos.src;
+                imagen.alt = datos.alt;
+                epigrafe.textContent = datos.epigrafe;
+                cuerpo.style.backgroundColor = datos.fondo;
+            }
+        }
+    </script>
+</body>
+</html>
